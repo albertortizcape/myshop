@@ -15,8 +15,10 @@
 
     <ul class="list-group">
         <li class="list-group-item" *ngFor="let item of boughtItems">{{item.title}} - <span>{{item.price | currency:"&euro;"}}</span></li>
-        <li class="list-group-item" *ngIf="totalPrice"><h2>Precio total: {{totalPrice | currency:"&euro;"}}</h2></li>
+        <li class="list-group-item" *ngIf="finalPrice()"><h2>Precio total: {{finalPrice() | currency:"&euro;"}}</h2></li>
     </ul>
+
+    <app-confirm></app-confirm>
 
 </div>
 </main><!-- /.container -->

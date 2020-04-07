@@ -1,0 +1,25 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" (click)="showModal=true" data-toggle="modal" data-target="#exampleModal" [disabled]="isDisabled">
+    Confirmar matricula
+</button>
+  
+  <!-- Modal -->
+<div class="modal fade" [ngClass]="{'show': showModal}" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar matriculación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="showModal=false">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Desea matricularse en los cursos seleccionados?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="showModal=false">Cerrar</button>
+                <button type="button" class="btn btn-primary" (click)="showModal=false">Matricularse</button>
+            </div>
+        </div>
+    </div>
+</div>

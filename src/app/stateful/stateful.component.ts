@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Product } from '../interface/product';
 import { Shop } from '../models/shop.model';
+import { ConfirmComponent } from '../confirm/confirm.component';
 
 @Component({
   selector: 'app-stateful',
@@ -11,12 +12,16 @@ import { Shop } from '../models/shop.model';
 // Contiene la lógica (stateful)
 export class StatefulComponent implements OnInit {
   
+  @ViewChild(ConfirmComponent, {static: false})
+  confirmChild: ConfirmComponent;
+  
   // Model
   shopModel: Shop = new Shop();
   
   // Interface
   boughtItems: Array<Product>;
 
+  // Solución simple... Débil frente a cmabios (descuentos)
   totalPrice: number;
 
   constructor() { 
@@ -39,5 +44,13 @@ export class StatefulComponent implements OnInit {
 
   cursoMatriculado(_event){
     this.clickItem(_event);
+    this.confirmChild.isDisabled =false;
   }
+
+  finalPrice(){
+    if(this.boughtItems){
+      return this.boughtItems.reduce((prev: number, item:Product) => prev + item.price, 0);
+    }
+  }
+
 }
