@@ -34,11 +34,10 @@ export class StatefulComponent implements OnInit {
     // Sumar los precios
 
     this.boughtItems.push(_curso);
-    this.totalPrice = this.totalPrice + _curso.price;
+    this.totalPrice += _curso.price;
   }
 
   cursoMatriculado(_event){
     this.clickItem(_event);
   }
-
 }
