@@ -14,7 +14,9 @@
     </div>
 
     <ul class="list-group">
-        <li class="list-group-item" *ngFor="let item of boughtItems">{{item.title}}</li>
+        <li class="list-group-item" *ngFor="let item of boughtItems">{{item.title}} - {{item.price}}</li>
+        <li *ngIf="totalPrice">Precio total: {{totalPrice}}</li>
     </ul>
+
 </div>
 </main><!-- /.container -->

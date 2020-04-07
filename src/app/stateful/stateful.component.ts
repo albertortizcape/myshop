@@ -17,8 +17,10 @@ export class StatefulComponent implements OnInit {
   // Interface
   boughtItems: Array<Product>;
 
+  totalPrice: number;
+
   constructor() { 
-    
+    this.totalPrice = 0;
     this.boughtItems = [];
   }
 
@@ -32,6 +34,7 @@ export class StatefulComponent implements OnInit {
     // Sumar los precios
 
     this.boughtItems.push(_curso);
+    this.totalPrice = this.totalPrice + _curso.price;
   }
 
   cursoMatriculado(_event){
