@@ -1,10 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetection } from '@angular/cli/lib/config/schema';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Product } from '../interface/product';
 
 @Component({
   selector: 'app-stateless',
   templateUrl: './stateless.component.html',
-  styleUrls: ['./stateless.component.css']
+  styleUrls: ['./stateless.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 // Sin lógica de negocio, solo pinta la información recibida por stateful
